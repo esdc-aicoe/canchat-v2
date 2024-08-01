@@ -1,0 +1,23 @@
+services:
+  open-webui:
+    image: flcanchatacr.azurecr.io/francislacroixopenwebui:latest
+    depends_on:
+      - open-webui-pipelines
+    ports:
+      - 8080:8080
+    expose:
+      - 8080
+    environment:
+      - OPENAI_API_BASE_URL=http://open-webui-pipelines:9099
+      - OPENAI_API_KEY=0p3n-w3bu!
+  
+  open-webui-pipelines:
+    image: flcanchatacr.azurecr.io/francislacroixopenwebuipipelines:latest
+    ports:
+      - 9099:9099
+    expose:
+      - 9099
+    environment:
+      - PIPELINES_URLS="https://github.com/francislacroix/open-webui-pipelines/blob/main/examples/pipelines/providers/azure_openai_pipeline.py"
+      
+      
