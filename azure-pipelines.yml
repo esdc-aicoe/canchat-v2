@@ -61,6 +61,6 @@ stages:
 
     - task: AzureWebAppContainer@1
       inputs:
-        azureSubscription: ''
-        appName: 'openwebui'
+        azureSubscription: 'openwebui'
+        appName: 'esdcchat'
         multicontainerConfigFile: $(dockerComposeFile)
