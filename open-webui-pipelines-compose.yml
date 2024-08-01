@@ -1,6 +1,6 @@
 services:
   open-webui:
-    image: flcanchatacr.azurecr.io/francislacroixopenwebui:latest
+    image: evachat.azurecr.io/esdcaiassisant:latest
     depends_on:
       - open-webui-pipelines
     ports:
@@ -12,12 +12,12 @@ services:
       - OPENAI_API_KEY=0p3n-w3bu!
   
   open-webui-pipelines:
-    image: flcanchatacr.azurecr.io/francislacroixopenwebuipipelines:latest
+    image: evachat.azurecr.io/esdcopenwebuipipelines:latest
     ports:
       - 9099:9099
     expose:
       - 9099
     environment:
-      - PIPELINES_URLS="https://github.com/francislacroix/open-webui-pipelines/blob/main/examples/pipelines/providers/azure_openai_pipeline.py"
+      - PIPELINES_URLS="https://github.com/esdc-aicoe/openwebui-pipelines/blob/main/examples/pipelines/providers/azure_openai_pipeline.py"
       
       
